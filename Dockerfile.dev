@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+# RUN mkdir node_modules
+# RUN chown -R julien:julien node_modules
+
+COPY package.json .
+RUN npm install
+
+# RUN chown node:node node_modules
+
+COPY . .
+
+CMD ["npm", "run", "start"]
+
